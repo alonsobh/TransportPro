@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using TransportPro.Entities;
 using TransportPro.Entities.Helpers;
 
@@ -10,43 +6,54 @@ namespace TransportPro.DA
 {
     public class ParaderoDA
     {
-        Paradero[] a;
-
         #region "SINGLETON"
-        public static ParaderoDA _instance;
-
-        private ParaderoDA() { a = llenarParadero(); }
+        private static ParaderoDA _instance;
 
         public static ParaderoDA GetInstance()
         {
-            if (_instance == null)
-            {
-                _instance = new ParaderoDA();
-            }
-            return _instance;
+            return _instance ?? (_instance = new ParaderoDA());
         }
+
         #endregion
 
 
 
         #region "METODOS"
-        public static Paradero[] llenarParadero()
+
+        public Paradero[] GetParaderosLinea1()
         {
-            return new Paradero[]{ new Paradero(){ Codigo = "01", Coordenada = new Coordenada{Longitud = 17.325,Latitud = 18.569}},
-                                   new Paradero(){ Codigo = "02", Coordenada = new Coordenada{Longitud = 20.325,Latitud = 19.569}},
-                                   new Paradero() { Codigo = "03", Coordenada = new Coordenada{Longitud = 21.854, Latitud = 20.451}}
+            return new Paradero[]{ new Paradero(){ Codigo = "A", Coordenada = new Coordenada{Latitud = -12.0871251,Longitud = -77.0052117}},
+                                   new Paradero(){ Codigo = "P1", Coordenada = new Coordenada{Latitud = -12.096093, Longitud = -76.989252}},
+                                   new Paradero() { Codigo = "P2", Coordenada = new Coordenada{Latitud = -12.097644, Longitud =  -76.980133}},
+                                   new Paradero() { Codigo = "P3", Coordenada = new Coordenada{Latitud = -12.099207, Longitud =  -76.969335}},
+                                   new Paradero() { Codigo = "B", Coordenada = new Coordenada{Latitud = -12.103812, Longitud = -76.962198}}
+            };
+        }
+
+        public Paradero[] GetParaderosLinea2()
+        {
+            return new Paradero[]{ new Paradero(){ Codigo = "C", Coordenada = new Coordenada{Latitud = -12.127784, Longitud = -76.991840}},
+                                   new Paradero(){ Codigo = "P4", Coordenada = new Coordenada{Latitud = -12.109805, Longitud = -76.984211}},
+                                   new Paradero() { Codigo = "P2", Coordenada = new Coordenada{Latitud = -12.097644, Longitud =  -76.980133}},
+                                   new Paradero() { Codigo = "P5", Coordenada = new Coordenada{Latitud = -12.063234, Longitud =  -76.961095}},
+                                   new Paradero() { Codigo = "D", Coordenada = new Coordenada{Latitud = -12.006048, Longitud =  -76.911069}}
+            };
+        }
+
+        public Paradero GetParaderoMasCerano(Coordenada posicion)
+        {
+            var paradero = new Paradero[]{ new Paradero() { Codigo = "A", Coordenada = new Coordenada{Latitud = -12.0871251,Longitud = -77.0052117}},
+                                   new Paradero() { Codigo = "B", Coordenada = new Coordenada{Latitud = -12.103812, Longitud = -76.962198}},
+                                   new Paradero() { Codigo = "C", Coordenada = new Coordenada{Latitud = -12.127784, Longitud = -76.991840}},
+                                   new Paradero() { Codigo = "D", Coordenada = new Coordenada{Latitud = -12.006048, Longitud =  -76.911069}},
+                                   new Paradero() { Codigo = "P1", Coordenada = new Coordenada{Latitud = -12.096093, Longitud = -76.989252}},
+                                   new Paradero() { Codigo = "P2", Coordenada = new Coordenada{Latitud = -12.097644, Longitud =  -76.980133}},
+                                   new Paradero() { Codigo = "P3", Coordenada = new Coordenada{Latitud = -12.099207, Longitud =  -76.969335}},
+                                   new Paradero() { Codigo = "P4", Coordenada = new Coordenada{Latitud = -12.109805, Longitud = -76.984211}},
+                                   new Paradero() { Codigo = "P5", Coordenada = new Coordenada{Latitud = -12.063234, Longitud =  -76.961095}}
             };
 
-        }
-
-        public IEnumerable<Paradero> GetParadas()
-        {
-            return a;
-        }
-
-        public Paradero GetParaderoMasCerano(Coordenada coordenada)
-        {
-            return a.OrderBy(p => Distance.GetDistance(p.Coordenada, coordenada)).First();
+            return paradero.OrderBy(p => Distance.GetDistance(p.Coordenada, posicion)).First();
         }
 
         #endregion

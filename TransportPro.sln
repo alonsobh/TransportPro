@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportPro.Web", "Transpo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportPro.DA", "TransportPro.DA\TransportPro.DA.csproj", "{CC69F98F-DCBF-49E5-B58D-D5DB685D04A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportPro.Test", "TransportPro.Test\TransportPro.Test.csproj", "{8C96AF17-F548-4A81-A9DD-A11A7CC24CF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CC69F98F-DCBF-49E5-B58D-D5DB685D04A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC69F98F-DCBF-49E5-B58D-D5DB685D04A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC69F98F-DCBF-49E5-B58D-D5DB685D04A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C96AF17-F548-4A81-A9DD-A11A7CC24CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C96AF17-F548-4A81-A9DD-A11A7CC24CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C96AF17-F548-4A81-A9DD-A11A7CC24CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C96AF17-F548-4A81-A9DD-A11A7CC24CF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

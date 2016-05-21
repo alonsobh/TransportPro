@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using TransportPro.Entities;
 
 namespace TransportPro.DA
@@ -10,9 +7,7 @@ namespace TransportPro.DA
     {
         #region "SINGLETON"
         public static LineaDA _instance;
-
-        private LineaDA() { }
-
+        
         public static LineaDA GetInstance()
         {
             if (_instance == null)
@@ -24,18 +19,23 @@ namespace TransportPro.DA
         #endregion
 
         #region "METODOS"
-        public Linea GetLinea()
+
+        public LineaDA()
         {
-            return new Linea()
+            lineas = new []
             {
-                Empresa = new Empresa() { Nombre = "Buses A1" },
-                Paraderos = ParaderoDA.GetInstance().GetParadas().ToArray()
+                new Linea {Empresa = new Empresa { Nombre = "Buses A1" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea1()} ,
+                 new Linea {Empresa = new Empresa { Nombre = "Buses A2" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea2()}
             };
         }
+        
         public Linea[] GetLinea(Paradero paradero)
         {
-            return new[] { GetLinea() };
+            return lineas.Where(l=>l.Paraderos.Any(p=>p.Codigo == paradero.Codigo)).ToArray();
         }
+
+        private readonly Linea[] lineas;
+
         #endregion
     }
 }
