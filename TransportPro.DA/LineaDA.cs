@@ -25,9 +25,12 @@ namespace TransportPro.DA
             lineas = new []
             {
                 new Linea {Empresa = new Empresa { Nombre = "Buses A1" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea1()} ,
-                 new Linea {Empresa = new Empresa { Nombre = "Buses A2" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea2()}
+                 new Linea {Empresa = new Empresa { Nombre = "Buses A2" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea2()},
+                 new Linea {Empresa = new Empresa { Nombre = "Buses A3" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea3()}
             };
         }
+
+
         
         public Linea[] GetLinea(Paradero paradero)
         {

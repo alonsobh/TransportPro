@@ -40,6 +40,13 @@ namespace TransportPro.DA
             };
         }
 
+        public Paradero[] GetParaderosLinea3()
+        {
+            return new Paradero[]{ new Paradero() { Codigo = "A", Coordenada = new Coordenada{Latitud = -12.0871251,Longitud = -77.0052117}},
+                                   new Paradero() { Codigo = "D", Coordenada = new Coordenada{Latitud = -12.006048, Longitud =  -76.911069}}
+            };
+        }
+
         public Paradero GetParaderoMasCerano(Coordenada posicion)
         {
             var paradero = new Paradero[]{ new Paradero() { Codigo = "A", Coordenada = new Coordenada{Latitud = -12.0871251,Longitud = -77.0052117}},

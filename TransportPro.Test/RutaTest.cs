@@ -17,7 +17,7 @@ namespace TransportPro.Test
 
         }
 
-        private RutaBC RutaBC => _rutaBC ?? (_rutaBC = new RutaBC());
+        private RutaBC RutaBC { get { return _rutaBC ?? (_rutaBC = new RutaBC()); } }
         private RutaBC _rutaBC;
     }
 }
