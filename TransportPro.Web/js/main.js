@@ -17,39 +17,37 @@
 
 // Main
 
-var MyApp;
+var map;
 
-var MyApp = {
 
-    seccion: {
-        modulo: function () {
-        }
-    }
-}
+function initMap() {
 
-$(document).ready(function (e) {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -12.0752345, lng: -77.2104959 },
+        zoom: 5
+    });
 
-    if ($('.clase').length) {
-        MyApp.seccion.modulo();
+
+
 }
 
 $("#btn").click(function (e) {
     var addres = $("#textPuntoInicio").val();
-        getListPosition("Av. la Fontana 1510, Lima 15024, Perú");
+    //getListPosition("Av. la Fontana 1510, Lima 15024, Perú");
+    var latOrigen = -12.02177;
+    var longOrigen = -77.10634;
+    var latdestino = -12.0399;
+    var longdestino = -77.09913;
+    getListPosition(latOrigen, longOrigen, latdestino, longdestino);
 });
 
-    //Get position from addres
-
-    function getListPosition(addres) {
-
-        //var sData = "{estado: " + estado + "}";
-        function getListPosition(addres) {
-
-            var purl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addres + "";
+function getListPosition(locationLatitud, locationLongitud, destinationLatitud, destinationLongitud) {
+    var sData = "{locationLatitud: " + locationLatitud + ",locationLongitud: " + locationLongitud + ",destinationLatitud:" + destinationLatitud + ",destinationLongitud:" + destinationLongitud + "}";
+    var purl = "index.aspx/GetDate";
     $.ajax({
         type: "POST",
         url: purl,
-                //data: sData,
+        data: sData,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         error: function (xhr, status, error) {
@@ -67,16 +65,25 @@ $("#btn").click(function (e) {
 
     });
 
+
+
 }
 function loadTable(registros) {
 
-    //var linea = JSON.parse(registros)[0].Detalle[0];
-    //console.log(linea);
-    //var location = new google.maps.LatLng(origin.latitud, origin.longitud);
-    //var marker = new google.maps.Marker({
-    //    position: location,
-    //    map: map
-    //});
+    var linea = JSON.parse(registros)[0].Detalle[0].Linea;
+    var distancia = JSON.parse(registros)[0].Detalle[0].Distancia;
+    var empresa = JSON.parse(registros)[0].Detalle[0].Empresa;
+    console.log(linea);
+
+    var textHtml = '<tr>' +
+                '<td>' + empresa + '</td>' +
+                '<td>' + linea + '</td>' +
+                '<td>' + distancia + '</td>' +
+              '</tr>';
+    $("#table tbody").html("");
+    $("#table tbody
+        ").append(textHtml);
+  
 
 
 
@@ -95,6 +102,9 @@ function loadJson(registros) {
     var longOrigen = paraderoOrigen.Coordenada.Longitud;
     var latdestino = paraderoDestino.Coordenada.Latitud;
     var longdestino = paraderoDestino.Coordenada.Longitud;
+
+ 
+
 
     drawLines(latOrigen, longOrigen, latdestino, longdestino);
 
@@ -122,9 +132,21 @@ function loadJson(registros) {
 
     function drawLines(latOri, longOri, latDest, longDest) {
 
-        console.log(longDest);
+        
 
+        var location = new google.maps.LatLng(latOri, longOri);
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
 
+        var locationdes = new google.maps.LatLng(latDest, longDest);
+        var marker2 = new google.maps.Marker({
+            position: locationdes,
+            map: map
+        });
+        map.setCenter(locationdes);
+        map.setZoom(15);
         var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer({
             map: map,

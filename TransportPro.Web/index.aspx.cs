@@ -19,11 +19,12 @@ namespace TransportPro.Web
         }
 
         [WebMethod]
-        public object GetDate(double locationLatitud, double locationLongitud, double destinationLatitud, double destinationLongitud)
+        public static object GetDate(double locationLatitud, double locationLongitud, double destinationLatitud, double destinationLongitud)
         {
             var posicionCercaA = new Coordenada { Latitud = locationLatitud, Longitud = locationLongitud };
             var posicionCercaD = new Coordenada { Latitud = destinationLatitud, Longitud = destinationLongitud };
-            var result = RutaBC.DameRuta(posicionCercaA, posicionCercaD);
+            RutaBC ruta = new RutaBC();
+            var result = ruta.DameRuta(posicionCercaA, posicionCercaD);
 
             var s = new JavaScriptSerializer();
             var obj = s.Serialize(result);
