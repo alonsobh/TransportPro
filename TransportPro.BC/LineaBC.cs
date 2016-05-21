@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Specialized;
+using System.Linq;
 using TransportPro.DA;
 using TransportPro.Entities;
 
@@ -9,6 +10,10 @@ namespace TransportPro.BC
         public Linea[] DameLineas(Paradero paradero)
         {
             return LineaDA.GetInstance().GetLinea(paradero);
+        }
+        public Linea DameLineas(string code )
+        {
+            return LineaDA.GetInstance().lineas.First(l=>l.Codigo==code);
         }
 
         public ObjectoDijkstra[] DameGrafos()

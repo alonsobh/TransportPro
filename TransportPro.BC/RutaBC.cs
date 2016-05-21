@@ -15,12 +15,26 @@ namespace TransportPro.BC
             return new[] { new Ruta() { Detalle = detalle.ToArray() } };
         }
 
-        private List<RutaDetalle> DameDetalle(Paradero origen, Paradero destino)
+        public Ruta[] DameLineaComoRuta(string lineaCode)
+        {
+            var linea = LineaBC.DameLineas(lineaCode);
+            var masCercanoOrigen = linea.Paraderos.First();
+            var masCercaDestino = linea.Paraderos.Last();
+            var detalle = DameDetalle(masCercanoOrigen, masCercaDestino, linea);
+            return new[] { new Ruta() { Detalle = detalle.ToArray() } };
+        }
+
+        private List<RutaDetalle> DameDetalle(Paradero origen, Paradero destino, Linea linea = null)
         {
             if (origen.Codigo == destino.Codigo)
                 return new List<RutaDetalle>();
 
-            var lineas = LineaBC.DameLineas(origen);
+            Linea[] lineas;
+
+            if (linea != null)
+                lineas = new[] { linea };
+            else
+                lineas = LineaBC.DameLineas(origen);
             var distance = Distance.GetDistance(origen.Coordenada, destino.Coordenada);
             var paraderosMasCercanos =
                 lineas
