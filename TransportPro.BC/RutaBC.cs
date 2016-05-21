@@ -20,13 +20,14 @@ namespace TransportPro.BC
             if (origen.Codigo == destino.Codigo)
                 return new List<RutaDetalle>();
 
+            var distancia = Distance.GetDistance(origen.Coordenada, destino.Coordenada);
+
             var lineas = LineaBC.DameLineas(origen);
-            var distance = Distance.GetDistance(origen.Coordenada, destino.Coordenada);
+
             var paraderosMasCercanos =
                 lineas
                 .SelectMany(l => l.Paraderos.Select(p => new { Paradero = p, Linea = l, Distancia = Distance.GetDistance(p.Coordenada, destino.Coordenada) + Distance.GetDistance(p.Coordenada, origen.Coordenada) }))
-                .Where(p => p.Paradero.Codigo != origen.Codigo
-                    && Distance.GetDistance(p.Paradero.Coordenada, destino.Coordenada) < distance)
+                .Where(p => p.Paradero.Codigo != origen.Codigo)
                 .OrderBy(p => p.Distancia)
                 .ToArray();
             if (getMinimal)
@@ -92,10 +93,13 @@ namespace TransportPro.BC
                 }
                 if (add && old != null)
                 {
+                    var detalle = insert ? new RutaDetalle { Linea = linea, ParaderoOrigen = paradero, ParaderoDestino = old }
+                    : new RutaDetalle { Linea = linea, ParaderoOrigen = old, ParaderoDestino = paradero };
+                    detalle.Distancia = Distance.GetDistance(detalle.ParaderoOrigen.Coordenada, detalle.ParaderoDestino.Coordenada);
                     if (insert)
-                        list.Insert(0, new RutaDetalle { Linea = linea.Codigo, Empresa = linea.Empresa.Nombre, ParaderoOrigen = paradero, ParaderoDestino = old });
+                        list.Insert(0, detalle);
                     else
-                        list.Add(new RutaDetalle { Linea = linea.Codigo, Empresa = linea.Empresa.Nombre, ParaderoOrigen = old, ParaderoDestino = paradero });
+                        list.Add(detalle);
                 }
                 old = paradero;
             }

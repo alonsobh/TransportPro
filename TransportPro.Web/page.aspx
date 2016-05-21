@@ -1,22 +1,31 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="page.aspx.cs" Inherits="TransportPro.Web.page" %>
+
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <title>Hackatrix | No te pierdas</title>
     <meta charset="utf-8">
     <meta name="description" content="Descripción de la página">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="css/main.css"><!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  </head>
-  <body>
+
+    <style type="text/css">
+        #map {
+            height: 100%;
+        }
+    </style>
+
+</head>
+<body>
     <header>
-      <div class="container">
-        <!--span contenido header-->
-      </div>
+        <div class="container">
+            <!--span contenido header-->
+        </div>
     </header>
     <main>
       <div class="container main">
@@ -62,33 +71,29 @@
                 <td>linea1</td>
                 <td>10km</td>
               </tr>
-              <tr>
-                <td>ruta1</td>
-                <td>linea1</td>
-                <td>10km</td>
-              </tr>
-              <tr>
-                <td>ruta1</td>
-                <td>linea1</td>
-                <td>10km</td>
-              </tr>
-              <tr>
-                <td>ruta1</td>
-                <td>linea1</td>
-                <td>10km</td>
-              </tr>
+            
             </tbody>
           </table>
         </div>
-      </div>
+          <div style="height:400px; width:1000px;" >
+          <div id="map" >
+
+          </div>
+         </div>
+   
     </main>
     <footer>
-      <div class="container">
-        <!--span contenido footer-->
-      </div>
+        <div class="container">
+            <!--span contenido footer-->
+        </div>
     </footer>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATO6qIIrwjPUfyC4G7oxjtZszv_SWB4-k&callback=initMap">
+    </script>
     <script src="js/min/recursos.min.js"></script>
     <script src="js/main.js"></script>
-  </body>
+</body>
 </html>
