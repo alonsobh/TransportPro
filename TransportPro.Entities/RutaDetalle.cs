@@ -8,10 +8,8 @@ namespace TransportPro.Entities
 
         public Paradero ParaderoDestino { get; set; }
 
-        public string Linea { get; set; }
+        public Linea Linea { get; set; }
 
-        public string Empresa { get; set; }
-
-        public double Distancia => Distance.GetDistance(ParaderoOrigen.Coordenada, ParaderoDestino.Coordenada);
+        public double Distancia { get; set; }// Distance.GetDistance(ParaderoOrigen.Coordenada, ParaderoDestino.Coordenada);
     }
 }
