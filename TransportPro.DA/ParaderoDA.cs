@@ -22,8 +22,8 @@ namespace TransportPro.DA
 
         public Paradero[] GetParaderosLinea1()
         {
-            return new Paradero[]{ new Paradero(){ Codigo = "A", Coordenada = new Coordenada{Latitud = -12.0871251,Longitud = -77.0052117}},
-                                   new Paradero(){ Codigo = "P1", Coordenada = new Coordenada{Latitud = -12.096093, Longitud = -76.989252}},
+            return new Paradero[]{ new Paradero() { Codigo = "A", Coordenada = new Coordenada{Latitud = -12.0871251,Longitud = -77.0052117}},
+                                   new Paradero() { Codigo = "P1", Coordenada = new Coordenada{Latitud = -12.096093, Longitud = -76.989252}},
                                    new Paradero() { Codigo = "P2", Coordenada = new Coordenada{Latitud = -12.097644, Longitud =  -76.980133}},
                                    new Paradero() { Codigo = "P3", Coordenada = new Coordenada{Latitud = -12.099207, Longitud =  -76.969335}},
                                    new Paradero() { Codigo = "B", Coordenada = new Coordenada{Latitud = -12.103812, Longitud = -76.962198}}
@@ -32,8 +32,8 @@ namespace TransportPro.DA
 
         public Paradero[] GetParaderosLinea2()
         {
-            return new Paradero[]{ new Paradero(){ Codigo = "C", Coordenada = new Coordenada{Latitud = -12.127784, Longitud = -76.991840}},
-                                   new Paradero(){ Codigo = "P4", Coordenada = new Coordenada{Latitud = -12.109805, Longitud = -76.984211}},
+            return new Paradero[]{ new Paradero() { Codigo = "C", Coordenada = new Coordenada{Latitud = -12.127784, Longitud = -76.991840}},
+                                   new Paradero() { Codigo = "P4", Coordenada = new Coordenada{Latitud = -12.109805, Longitud = -76.984211}},
                                    new Paradero() { Codigo = "P2", Coordenada = new Coordenada{Latitud = -12.097644, Longitud =  -76.980133}},
                                    new Paradero() { Codigo = "P5", Coordenada = new Coordenada{Latitud = -12.063234, Longitud =  -76.961095}},
                                    new Paradero() { Codigo = "D", Coordenada = new Coordenada{Latitud = -12.006048, Longitud =  -76.911069}}
