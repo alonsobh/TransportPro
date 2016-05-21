@@ -12,6 +12,7 @@ namespace TransportPro.Web
         {
             //GetDate();
         }
+
         [WebMethod]
         public object GetDate(double locationLatitud, double locationLongitud, double destinationLatitud, double destinationLongitud)
         {

@@ -58,10 +58,122 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="componentes\jquery\dist\jquery.js" />
+    <Content Include="componentes\jquery\dist\jquery.min.js" />
+    <Content Include="componentes\jquery\MIT-LICENSE.txt" />
+    <Content Include="componentes\jquery\src\ajax.js" />
+    <Content Include="componentes\jquery\src\ajax\jsonp.js" />
+    <Content Include="componentes\jquery\src\ajax\load.js" />
+    <Content Include="componentes\jquery\src\ajax\parseJSON.js" />
+    <Content Include="componentes\jquery\src\ajax\parseXML.js" />
+    <Content Include="componentes\jquery\src\ajax\script.js" />
+    <Content Include="componentes\jquery\src\ajax\var\nonce.js" />
+    <Content Include="componentes\jquery\src\ajax\var\rquery.js" />
+    <Content Include="componentes\jquery\src\ajax\xhr.js" />
+    <Content Include="componentes\jquery\src\attributes.js" />
+    <Content Include="componentes\jquery\src\attributes\attr.js" />
+    <Content Include="componentes\jquery\src\attributes\classes.js" />
+    <Content Include="componentes\jquery\src\attributes\prop.js" />
+    <Content Include="componentes\jquery\src\attributes\support.js" />
+    <Content Include="componentes\jquery\src\attributes\val.js" />
+    <Content Include="componentes\jquery\src\callbacks.js" />
+    <Content Include="componentes\jquery\src\core.js" />
+    <Content Include="componentes\jquery\src\core\access.js" />
+    <Content Include="componentes\jquery\src\core\init.js" />
+    <Content Include="componentes\jquery\src\core\parseHTML.js" />
+    <Content Include="componentes\jquery\src\core\ready.js" />
+    <Content Include="componentes\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="componentes\jquery\src\css.js" />
+    <Content Include="componentes\jquery\src\css\addGetHookIf.js" />
+    <Content Include="componentes\jquery\src\css\curCSS.js" />
+    <Content Include="componentes\jquery\src\css\defaultDisplay.js" />
+    <Content Include="componentes\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="componentes\jquery\src\css\support.js" />
+    <Content Include="componentes\jquery\src\css\swap.js" />
+    <Content Include="componentes\jquery\src\css\var\cssExpand.js" />
+    <Content Include="componentes\jquery\src\css\var\getStyles.js" />
+    <Content Include="componentes\jquery\src\css\var\isHidden.js" />
+    <Content Include="componentes\jquery\src\css\var\rmargin.js" />
+    <Content Include="componentes\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="componentes\jquery\src\data.js" />
+    <Content Include="componentes\jquery\src\data\accepts.js" />
+    <Content Include="componentes\jquery\src\data\Data.js" />
+    <Content Include="componentes\jquery\src\data\var\data_priv.js" />
+    <Content Include="componentes\jquery\src\data\var\data_user.js" />
+    <Content Include="componentes\jquery\src\deferred.js" />
+    <Content Include="componentes\jquery\src\deprecated.js" />
+    <Content Include="componentes\jquery\src\dimensions.js" />
+    <Content Include="componentes\jquery\src\effects.js" />
+    <Content Include="componentes\jquery\src\effects\animatedSelector.js" />
+    <Content Include="componentes\jquery\src\effects\Tween.js" />
+    <Content Include="componentes\jquery\src\event.js" />
+    <Content Include="componentes\jquery\src\event\ajax.js" />
+    <Content Include="componentes\jquery\src\event\alias.js" />
+    <Content Include="componentes\jquery\src\event\support.js" />
+    <Content Include="componentes\jquery\src\exports\amd.js" />
+    <Content Include="componentes\jquery\src\exports\global.js" />
+    <Content Include="componentes\jquery\src\intro.js" />
+    <Content Include="componentes\jquery\src\jquery.js" />
+    <Content Include="componentes\jquery\src\manipulation.js" />
+    <Content Include="componentes\jquery\src\manipulation\support.js" />
+    <Content Include="componentes\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="componentes\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="componentes\jquery\src\offset.js" />
+    <Content Include="componentes\jquery\src\outro.js" />
+    <Content Include="componentes\jquery\src\queue.js" />
+    <Content Include="componentes\jquery\src\queue\delay.js" />
+    <Content Include="componentes\jquery\src\selector-native.js" />
+    <Content Include="componentes\jquery\src\selector-sizzle.js" />
+    <Content Include="componentes\jquery\src\selector.js" />
+    <Content Include="componentes\jquery\src\serialize.js" />
+    <Content Include="componentes\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="componentes\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="componentes\jquery\src\traversing.js" />
+    <Content Include="componentes\jquery\src\traversing\findFilter.js" />
+    <Content Include="componentes\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="componentes\jquery\src\var\arr.js" />
+    <Content Include="componentes\jquery\src\var\class2type.js" />
+    <Content Include="componentes\jquery\src\var\concat.js" />
+    <Content Include="componentes\jquery\src\var\hasOwn.js" />
+    <Content Include="componentes\jquery\src\var\indexOf.js" />
+    <Content Include="componentes\jquery\src\var\pnum.js" />
+    <Content Include="componentes\jquery\src\var\push.js" />
+    <Content Include="componentes\jquery\src\var\rnotwhite.js" />
+    <Content Include="componentes\jquery\src\var\slice.js" />
+    <Content Include="componentes\jquery\src\var\strundefined.js" />
+    <Content Include="componentes\jquery\src\var\support.js" />
+    <Content Include="componentes\jquery\src\var\toString.js" />
+    <Content Include="componentes\jquery\src\wrap.js" />
+    <Content Include="componentes\normalize-scss\normalize.css" />
+    <Content Include="componentes\sass-mediaqueries\.gitignore" />
+    <Content Include="css\main.css" />
+    <Content Include="index.aspx" />
+    <Content Include="js\main.js" />
+    <Content Include="js\min\main.min.js" />
+    <Content Include="js\min\recursos.min.js" />
+    <Content Include="js\recursos.js" />
+    <Content Include="obj\Debug\TransportPro.Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\TransportPro.Web.dll" />
+    <Content Include="obj\Debug\TransportPro.Web.pdb" />
+    <Content Include="page.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page.aspx.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page.aspx.designer.cs">
+      <DependentUpon>page.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -72,6 +184,34 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="componentes\jquery\.bower.json" />
+    <Content Include="componentes\jquery\bower.json" />
+    <Content Include="componentes\jquery\dist\jquery.min.map" />
+    <Content Include="componentes\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="componentes\normalize-scss\.bower.json" />
+    <Content Include="componentes\normalize-scss\bower.json" />
+    <Content Include="componentes\normalize-scss\LICENSE.md" />
+    <Content Include="componentes\normalize-scss\README.md" />
+    <Content Include="componentes\normalize-scss\_normalize.scss" />
+    <Content Include="componentes\sass-mediaqueries\.bower.json" />
+    <Content Include="componentes\sass-mediaqueries\bower.json" />
+    <Content Include="componentes\sass-mediaqueries\README.md" />
+    <Content Include="componentes\sass-mediaqueries\sache.json" />
+    <Content Include="componentes\sass-mediaqueries\_media-queries.scss" />
+    <Content Include="fonts\.gitkeep" />
+    <Content Include="images\.gitkeep" />
+    <Content Include="jade\includes\footer.jade" />
+    <Content Include="jade\includes\header.jade" />
+    <Content Include="jade\plantillas\plantilla-principal.jade" />
+    <Content Include="jade\vistas\index.jade" />
+    <Content Include="jade\vistas\page.jade" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\TransportPro.Web.csprojResolveAssemblyReference.cache" />
+    <Content Include="scss\main.scss" />
+    <Content Include="scss\_ayudas.scss" />
+    <Content Include="scss\_fuentes.scss" />
+    <Content Include="scss\_generales.scss" />
+    <Content Include="scss\_variables.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -88,6 +228,9 @@
       <Project>{01ede3e7-d58b-448b-9155-e847f17d4a59}</Project>
       <Name>TransportPro.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

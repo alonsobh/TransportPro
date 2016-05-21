@@ -19,9 +19,7 @@ namespace TransportPro.BC
         {
             if (origen.Codigo == destino.Codigo)
                 return new List<RutaDetalle>();
-
-            var distancia = Distance.GetDistance(origen.Coordenada, destino.Coordenada);
-
+            
             var lineas = LineaBC.DameLineas(origen);
 
             var paraderosMasCercanos =
@@ -94,9 +92,9 @@ namespace TransportPro.BC
                 if (add && old != null)
                 {
                     if (insert)
-                        list.Insert(0, new RutaDetalle { Linea = linea, ParaderoOrigen = paradero, ParaderoDestino = old });
+                        list.Insert(0, new RutaDetalle { Linea = linea.Codigo, Empresa = linea.Empresa.Nombre, ParaderoOrigen = paradero, ParaderoDestino = old });
                     else
-                        list.Add(new RutaDetalle { Linea = linea, ParaderoOrigen = old, ParaderoDestino = paradero });
+                        list.Add(new RutaDetalle { Linea = linea.Codigo, Empresa = linea.Empresa.Nombre, ParaderoOrigen = old, ParaderoDestino = paradero });
                 }
                 old = paradero;
             }

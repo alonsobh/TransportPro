@@ -24,9 +24,9 @@ namespace TransportPro.DA
         {
             lineas = new []
             {
-                new Linea {Empresa = new Empresa { Nombre = "Buses A1" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea1()} ,
-                 new Linea {Empresa = new Empresa { Nombre = "Buses A2" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea2()},
-                 new Linea {Empresa = new Empresa { Nombre = "Buses A3" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea3()}
+                new Linea {Codigo = "Linea 1",Empresa = new Empresa { Nombre = "Buses A1" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea1()} ,
+                 new Linea {Codigo = "Linea 2",Empresa = new Empresa { Nombre = "Buses A2" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea2()},
+                 new Linea {Codigo = "Linea 3",Empresa = new Empresa { Nombre = "Buses A3" }, Paraderos =  ParaderoDA.GetInstance().GetParaderosLinea3()},
             };
         }
 
@@ -43,7 +43,7 @@ namespace TransportPro.DA
             return lineas.Where(l=>l.Paraderos.Any(p=>p.Codigo == paradero.Codigo)).ToArray();
         }
 
-        private readonly Linea[] lineas;
+        public readonly Linea[] lineas;
 
         #endregion
     }
