@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace TransportPro.Entities
+﻿namespace TransportPro.Entities
 {
     public class Ruta
     {
-        public Empresa Empresa { get; set; }
+        public int Distancia { get; set; }
 
-        public List<Paradero> Paraderos { get; set; }
+        public RutaDetalle[] Detalle { get; set; }
     }
 }
