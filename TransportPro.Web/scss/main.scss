@@ -1,0 +1,66 @@
+// Librerias sass
+//@import '../componentes/normalize-scss/normalize';
+
+// Dependecias del proyecto
+@import 'variables';
+@import 'ayudas';
+@import 'fuentes';
+
+// Dependecias JS
+
+// Patrones
+@import 'generales';
+
+// Secciones
+
+
+//home 
+
+.container {
+    //background: rgba(green, 0.1);
+}
+
+.main, {
+    h1 {
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    h2 {
+    	text-align: center;
+    }
+}
+
+.contenido-mapa {
+    text-align: center;
+    margin: 0 auto;
+    margin: 20px 0 10px;
+}
+
+.mapa {
+    height: 350px;
+    //width: 500px;
+    width: 90%;
+    background: rgba(0,0,255,0.1);
+    text-align: center;
+    margin: 0 auto 10px;
+}
+
+.contenido-boton {
+	text-align: center;
+	margin: 0 0 15px 0;
+}
+
+//page
+
+.contenido-destino {
+	.row {
+		margin: 0 0 15px 0;
+	}
+	span {
+		margin: 0 15px 0 0;
+	}
+}
+
+
+

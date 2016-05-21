@@ -1,0 +1,30 @@
+extends ../plantillas/plantilla-principal
+
+block title
+    -var proyecto = {nombre: 'notepierdas', seccion: 'belatrix'}
+    title #{proyecto.nombre} | #{proyecto.seccion}
+
+block description
+    meta(name='description', content='Descripción de la página')
+block content
+    main
+        .container.main
+            h1 no te pierdas
+            .contenido-mapa
+                 .contenido-destino
+                    .row
+                        span punto de partida
+                        input(type="text")
+                    .row
+                        span punto de llegada
+                        input(type="text")
+                .contenido-boton
+                         a(href="#").btn.btn-lg.btn-primary pon tu ruta
+
+                .contenido-tabla
+                    
+
+
+            
+         
+
