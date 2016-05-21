@@ -17,37 +17,39 @@
 
 // Main
 
-var map;
+var MyApp;
 
+var MyApp = {
 
-function initMap() {
+    seccion: {
+        modulo: function () {
+        }
+    }
+}
 
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -12.0846567, lng: -76.9308747 },
-        zoom: 15
-    });
+$(document).ready(function (e) {
 
-
-
+    if ($('.clase').length) {
+        MyApp.seccion.modulo();
 }
 
 $("#btn").click(function (e) {
     var addres = $("#textPuntoInicio").val();
-    //getListPosition("Av. la Fontana 1510, Lima 15024, Perú");
-    var latOrigen = -12.02177;
-    var longOrigen = -77.10634;
-    var latdestino = -12.0399;
-    var longdestino = -77.09913;
-    getListPosition(latOrigen, longOrigen, latdestino, longdestino);
+        getListPosition("Av. la Fontana 1510, Lima 15024, Perú");
 });
 
-function getListPosition(locationLatitud, locationLongitud, destinationLatitud, destinationLongitud) {
-    var sData = "{locationLatitud: " + locationLatitud + ",locationLongitud: " + locationLongitud + ",destinationLatitud:" + destinationLatitud + ",destinationLongitud:" + destinationLongitud + "}";
-    var purl = "index.aspx/GetDate";
+    //Get position from addres
+
+    function getListPosition(addres) {
+
+        //var sData = "{estado: " + estado + "}";
+        function getListPosition(addres) {
+
+            var purl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addres + "";
     $.ajax({
         type: "POST",
         url: purl,
-        data: sData,
+                //data: sData,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         error: function (xhr, status, error) {
@@ -64,8 +66,6 @@ function getListPosition(locationLatitud, locationLongitud, destinationLatitud, 
         }
 
     });
-
-
 
 }
 function loadTable(registros) {

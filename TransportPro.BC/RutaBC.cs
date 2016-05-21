@@ -15,19 +15,32 @@ namespace TransportPro.BC
             return new[] { new Ruta() { Detalle = detalle.ToArray() } };
         }
 
-        private List<RutaDetalle> DameDetalle(Paradero origen, Paradero destino)
+        public Ruta[] DameLineaComoRuta(string lineaCode)
+        {
+            var linea = LineaBC.DameLineas(lineaCode);
+            var masCercanoOrigen = linea.Paraderos.First();
+            var masCercaDestino = linea.Paraderos.Last();
+            var detalle = DameDetalle(masCercanoOrigen, masCercaDestino, linea);
+            return new[] { new Ruta() { Detalle = detalle.ToArray() } };
+        }
+
+        private List<RutaDetalle> DameDetalle(Paradero origen, Paradero destino, Linea linea = null)
         {
             if (origen.Codigo == destino.Codigo)
                 return new List<RutaDetalle>();
 
-            var distancia = Distance.GetDistance(origen.Coordenada, destino.Coordenada);
+            Linea[] lineas;
 
-            var lineas = LineaBC.DameLineas(origen);
-
+            if (linea != null)
+                lineas = new[] { linea };
+            else
+                lineas = LineaBC.DameLineas(origen);
+            var distance = Distance.GetDistance(origen.Coordenada, destino.Coordenada);
             var paraderosMasCercanos =
                 lineas
                 .SelectMany(l => l.Paraderos.Select(p => new { Paradero = p, Linea = l, Distancia = Distance.GetDistance(p.Coordenada, destino.Coordenada) + Distance.GetDistance(p.Coordenada, origen.Coordenada) }))
-                .Where(p => p.Paradero.Codigo != origen.Codigo)
+                .Where(p => p.Paradero.Codigo != origen.Codigo
+                    && Distance.GetDistance(p.Paradero.Coordenada, destino.Coordenada) < distance)
                 .OrderBy(p => p.Distancia)
                 .ToArray();
             if (getMinimal)
@@ -40,7 +53,7 @@ namespace TransportPro.BC
                     var rutaDetalle = DameDetalle(paraderoMasCercano.Paradero, destino);
                     if (rutaDetalle == null)
                         continue;
-                    var detalle = DameDetalle(origen, paraderoMasCercano.Paradero, paraderoMasCercano.Linea);
+                    var detalle = LineaARutaDetalle.DameDetalle(origen, paraderoMasCercano.Paradero, paraderoMasCercano.Linea);
                     detalle.AddRange(rutaDetalle);
                     list.Add(detalle);
                 }
@@ -53,58 +66,17 @@ namespace TransportPro.BC
                     var rutaDetalle = DameDetalle(paraderoMasCercano.Paradero, destino);
                     if (rutaDetalle == null)
                         continue;
-                    var detalle = DameDetalle(origen, paraderoMasCercano.Paradero, paraderoMasCercano.Linea);
+                    var detalle = LineaARutaDetalle.DameDetalle(origen, paraderoMasCercano.Paradero, paraderoMasCercano.Linea);
                     detalle.AddRange(rutaDetalle);
                     return detalle;
                 }
 
             }
 
-            return null;
+            return new List<RutaDetalle>();
         }
 
         private bool getMinimal = false;
-
-        private List<RutaDetalle> DameDetalle(Paradero origen, Paradero destino, Linea linea)
-        {
-            var add = false;
-            var list = new List<RutaDetalle>();
-            var insert = false;
-            var resetAdd = false;
-            Paradero old = null;
-            foreach (var paradero in linea.Paraderos)
-            {
-                if (resetAdd)
-                    add = false;
-                if (new[] { origen.Codigo, destino.Codigo }.Contains(paradero.Codigo))
-                {
-                    add = !add;
-                    if (add)
-                    {
-                        if (destino.Codigo == paradero.Codigo)
-                            insert = true;
-                        old = null;
-                    }
-                    else
-                    {
-                        resetAdd = true;
-                        add = true;
-                    }
-                }
-                if (add && old != null)
-                {
-                    var detalle = insert ? new RutaDetalle { Linea = linea, ParaderoOrigen = paradero, ParaderoDestino = old }
-                    : new RutaDetalle { Linea = linea, ParaderoOrigen = old, ParaderoDestino = paradero };
-                    detalle.Distancia = Distance.GetDistance(detalle.ParaderoOrigen.Coordenada, detalle.ParaderoDestino.Coordenada);
-                    if (insert)
-                        list.Insert(0, detalle);
-                    else
-                        list.Add(detalle);
-                }
-                old = paradero;
-            }
-            return list;
-        }
 
 
         private ParaderoBC ParaderoBC { get { return _paraderoBC ?? (_paraderoBC = new ParaderoBC()); } }
