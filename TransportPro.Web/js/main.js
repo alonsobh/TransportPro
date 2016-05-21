@@ -59,12 +59,26 @@ function getListPosition(locationLatitud, locationLongitud, destinationLatitud, 
                 console.log("INFORMATION");
                 console.log(registros);
                 loadJson(registros);
+                loadTable(registros);
             }
         }
 
     });
 
-   
+
+
+}
+function loadTable(registros) {
+
+    //var linea = JSON.parse(registros)[0].Detalle[0];
+    //console.log(linea);
+    //var location = new google.maps.LatLng(origin.latitud, origin.longitud);
+    //var marker = new google.maps.Marker({
+    //    position: location,
+    //    map: map
+    //});
+
+
 
 }
 
@@ -73,17 +87,30 @@ function loadJson(registros) {
 
     var paraderos = JSON.parse(registros)[0].Detalle[0].Linea.Paraderos;
     console.log(paraderos);
-   
-    for (var i = 1; i < paraderos.length; i++) {
 
-        var latOrigen = paraderos[i - 1].Coordenada.Latitud;
-        var longOrigen = paraderos[i - 1].Coordenada.Longitud;
-        var latdestino = paraderos[i].Coordenada.Latitud;
-        var longdestino = paraderos[i].Coordenada.Longitud; 
+    var paraderoOrigen = JSON.parse(registros)[0].Detalle[0].ParaderoOrigen;
+    var paraderoDestino = JSON.parse(registros)[0].Detalle[0].ParaderoDestino;
 
-        drawLines(latOrigen, longOrigen, latdestino, longdestino);
-   
-    }
+    var latOrigen = paraderoOrigen.Coordenada.Latitud;
+    var longOrigen = paraderoOrigen.Coordenada.Longitud;
+    var latdestino = paraderoDestino.Coordenada.Latitud;
+    var longdestino = paraderoDestino.Coordenada.Longitud;
+
+    drawLines(latOrigen, longOrigen, latdestino, longdestino);
+
+    console.log(paraderoOrigen);
+
+
+    //for (var i = 1; i < paraderos.length; i++) {
+
+    //    var latOrigen = paraderos[i - 1].Coordenada.Latitud;
+    //    var longOrigen = paraderos[i - 1].Coordenada.Longitud;
+    //    var latdestino = paraderos[i].Coordenada.Latitud;
+    //    var longdestino = paraderos[i].Coordenada.Longitud; 
+
+    //    drawLines(latOrigen, longOrigen, latdestino, longdestino);
+
+    //}
 
     //var latOrigen = -12.08465;
     //var longOrigen = -76.93087;
@@ -93,14 +120,10 @@ function loadJson(registros) {
 
 
 
-    function drawLines(latOri, longOri,latDest,longDest) {
-   
-        console.log( longDest);
-        //var location = new google.maps.LatLng(origin.latitud, origin.longitud);
-        //var marker = new google.maps.Marker({
-        //    position: location,
-        //    map: map
-        //});
+    function drawLines(latOri, longOri, latDest, longDest) {
+
+        console.log(longDest);
+
 
         var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer({
@@ -110,7 +133,7 @@ function loadJson(registros) {
 
         directionsService.route({
             origin: new google.maps.LatLng(latOri, longOri),
-            destination: new google.maps.LatLng(latDest,longDest),
+            destination: new google.maps.LatLng(latDest, longDest),
             waypoints: [{
                 stopover: false,
                 location: new google.maps.LatLng(latOri, longOri) //origin location

@@ -57,7 +57,7 @@
           <div class="contenido-boton"><a href="#" id="btn" class="btn btn-lg btn-primary">pon tu ruta</a></div>
         </form>
         <div class="contenido-tabla table-responsive">
-          <table class="table table-striped table-bordered table-hover table-condensed">
+          <table class="table table-striped table-bordered table-hover table-condensed" id="table">
             <thead>
               <tr>
                 <th>Ruta</th>
