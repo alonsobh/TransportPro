@@ -81,8 +81,7 @@ function loadTable(registros) {
                 '<td>' + distancia + '</td>' +
               '</tr>';
     $("#table tbody").html("");
-    $("#table tbody
-        ").append(textHtml);
+    $("#table tbody").append(textHtml);
   
 
 
