@@ -6,6 +6,10 @@ namespace TransportPro.BC
     {
         public Ruta[] DameRuta(Coordenada origen, Coordenada destino)
         {
+            var masCercano = ParaderoBC.ParaderoMasCerca(origen);
+
+            var masCercaDestino = ParaderoBC.ParaderoMasCerca(destino);
+
             return null;
         }
 

@@ -4,9 +4,8 @@ namespace TransportPro.BC
 {
     public class ParaderoBC
     {
-        public Paradero DameRuta(Coordenada origen, Coordenada destino)
+        public Paradero ParaderoMasCerca(Coordenada posicion)
         {
-
             return null;
         }
     }
