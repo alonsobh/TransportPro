@@ -30,8 +30,14 @@ namespace TransportPro.DA
             };
         }
 
+        public RutaDetalle[] DameGrafos()
+        {
+            return null;
 
-        
+        }
+
+
+
         public Linea[] GetLinea(Paradero paradero)
         {
             return lineas.Where(l=>l.Paraderos.Any(p=>p.Codigo == paradero.Codigo)).ToArray();

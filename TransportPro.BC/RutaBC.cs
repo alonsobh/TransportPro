@@ -27,8 +27,7 @@ namespace TransportPro.BC
             var paraderosMasCercanos =
                 lineas
                 .SelectMany(l => l.Paraderos.Select(p => new { Paradero = p, Linea = l, Distancia = Distance.GetDistance(p.Coordenada, destino.Coordenada) + Distance.GetDistance(p.Coordenada, origen.Coordenada) }))
-                .Where(p => p.Paradero.Codigo != origen.Codigo
-                                && p.Distancia < distancia)
+                .Where(p => p.Paradero.Codigo != origen.Codigo)
                 .OrderBy(p => p.Distancia)
                 .ToArray();
             if (getMinimal)
