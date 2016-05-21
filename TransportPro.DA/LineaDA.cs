@@ -30,12 +30,6 @@ namespace TransportPro.DA
             };
         }
 
-        public RutaDetalle[] DameGrafos()
-        {
-            return null;
-
-        }
-
 
 
         public Linea[] GetLinea(Paradero paradero)
