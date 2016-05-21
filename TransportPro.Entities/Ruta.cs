@@ -1,8 +1,10 @@
-﻿namespace TransportPro.Entities
+﻿using System.Linq;
+
+namespace TransportPro.Entities
 {
     public class Ruta
     {
-        public int Distancia { get; set; }
+        public double Distancia => Detalle.Sum(p => p.Distancia);
 
         public RutaDetalle[] Detalle { get; set; }
     }

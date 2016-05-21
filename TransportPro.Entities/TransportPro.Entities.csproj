@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Coordenada.cs" />
     <Compile Include="Empresa.cs" />
+    <Compile Include="Helpers\Distance.cs" />
     <Compile Include="Linea.cs" />
     <Compile Include="Paradero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

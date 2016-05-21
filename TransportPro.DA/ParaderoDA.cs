@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TransportPro.Entities;
+using TransportPro.Entities.Helpers;
 
 namespace TransportPro.DA
 {
@@ -29,7 +30,7 @@ namespace TransportPro.DA
 
 
         #region "METODOS"
-        public static Paradero[] llenarParadero() 
+        public static Paradero[] llenarParadero()
         {
             return new Paradero[]{ new Paradero(){ Codigo = "01", Coordenada = new Coordenada{Longitud = 17.325,Latitud = 18.569}},
                                    new Paradero(){ Codigo = "02", Coordenada = new Coordenada{Longitud = 20.325,Latitud = 19.569}},
@@ -41,6 +42,11 @@ namespace TransportPro.DA
         public IEnumerable<Paradero> GetParadas()
         {
             return a;
+        }
+
+        public Paradero GetParaderoMasCerano(Coordenada coordenada)
+        {
+            return a.OrderBy(p => Distance.GetDistance(p.Coordenada, coordenada)).First();
         }
 
         #endregion

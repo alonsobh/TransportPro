@@ -1,4 +1,5 @@
-﻿using TransportPro.Entities;
+﻿using TransportPro.DA;
+using TransportPro.Entities;
 
 namespace TransportPro.BC
 {
@@ -6,7 +7,9 @@ namespace TransportPro.BC
     {
         public Paradero ParaderoMasCerca(Coordenada posicion)
         {
-            return null;
+            return ParaderoDA.GetInstance().GetParaderoMasCerano(posicion);
         }
+
+        
     }
 }

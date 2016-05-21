@@ -11,7 +11,7 @@ namespace TransportPro.DA
         #region "SINGLETON"
         public static RutaDA _instance;
 
-        private RutaDA() {}
+        private RutaDA() { }
 
         public static RutaDA GetInstance()
         {
@@ -25,9 +25,9 @@ namespace TransportPro.DA
 
         #region "METODOS"
         public IEnumerable<Ruta> GetParadas()
-        {   
+        {
             return null;
         }
-
+        #endregion
     }
 }

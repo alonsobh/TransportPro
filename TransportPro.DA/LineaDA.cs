@@ -26,9 +26,15 @@ namespace TransportPro.DA
         #region "METODOS"
         public Linea GetLinea()
         {
-            return new Linea() { Empresa = new Empresa() { Nombre = "Buses A1" },
-                                 Paraderos = ParaderoDA.GetInstance().GetParadas().ToArray()
-                               };
+            return new Linea()
+            {
+                Empresa = new Empresa() { Nombre = "Buses A1" },
+                Paraderos = ParaderoDA.GetInstance().GetParadas().ToArray()
+            };
+        }
+        public Linea[] GetLinea(Paradero paradero)
+        {
+            return new[] { GetLinea() };
         }
         #endregion
     }

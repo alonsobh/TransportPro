@@ -1,4 +1,6 @@
-﻿namespace TransportPro.Entities
+﻿using TransportPro.Entities.Helpers;
+
+namespace TransportPro.Entities
 {
     public class RutaDetalle
     {
@@ -8,6 +10,6 @@
 
         public Linea Linea { get; set; }
 
-        //public int Distancia => 
+        public double Distancia => Distance.GetDistance(ParaderoOrigen.Coordenada, ParaderoDestino.Coordenada);
     }
 }
