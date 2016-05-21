@@ -9,10 +9,12 @@ namespace TransportPro.DA
 {
     public class ParaderoDA
     {
+        Paradero[] a;
+
         #region "SINGLETON"
         public static ParaderoDA _instance;
 
-        private ParaderoDA() {}
+        private ParaderoDA() { a = llenarParadero(); }
 
         public static ParaderoDA GetInstance()
         {
@@ -24,7 +26,6 @@ namespace TransportPro.DA
         }
         #endregion
 
-        Paradero[] a = llenarParadero();
 
 
         #region "METODOS"

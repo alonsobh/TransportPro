@@ -6,6 +6,6 @@ namespace TransportPro.Entities
     {
         public Empresa Empresa { get; set; }
 
-        public List<Paradero> Paraderos { get; set; }
+        public Paradero[] Paraderos { get; set; }
     }
 }

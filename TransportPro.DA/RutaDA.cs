@@ -25,13 +25,7 @@ namespace TransportPro.DA
 
         #region "METODOS"
         public IEnumerable<Ruta> GetParadas()
-        {   /*
-            return new[] { new Ruta() {Distancia = 52, 
-                                       Detalle = new[] { new RutaDetalle() { ParaderoOrigen = ParaderoDA.GetInstance().GetParadas() }
-                                       }}
-                                      }
-                         };
-             * */
+        {   
             return null;
         }
 

@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LineaDA.cs" />
     <Compile Include="ParaderoDA.cs" />
     <Compile Include="RutaDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
