@@ -41,8 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ManejoRuta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransportPro.DA\TransportPro.DA.csproj">
+      <Project>{cc69f98f-dcbf-49e5-b58d-d5db685d04a2}</Project>
+      <Name>TransportPro.DA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransportPro.Entities\TransportPro.Entities.csproj">
+      <Project>{01ede3e7-d58b-448b-9155-e847f17d4a59}</Project>
+      <Name>TransportPro.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
