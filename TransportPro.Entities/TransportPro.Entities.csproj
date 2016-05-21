@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Coordenada.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Linea.cs" />
     <Compile Include="Paradero.cs" />

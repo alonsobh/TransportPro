@@ -2,6 +2,8 @@
 {
     public class Paradero
     {
-        public Coordenada Coordenada { get; set; }
+        public decimal Longitud { get; set; }
+
+        public decimal Latitud { get; set; }
     }
 }
