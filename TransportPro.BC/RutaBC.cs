@@ -19,13 +19,14 @@ namespace TransportPro.BC
         {
             if (origen.Codigo == destino.Codigo)
                 return new List<RutaDetalle>();
-            
-            var lineas = LineaBC.DameLineas(origen);
 
+            var lineas = LineaBC.DameLineas(origen);
+            var distance = Distance.GetDistance(origen.Coordenada, destino.Coordenada);
             var paraderosMasCercanos =
                 lineas
                 .SelectMany(l => l.Paraderos.Select(p => new { Paradero = p, Linea = l, Distancia = Distance.GetDistance(p.Coordenada, destino.Coordenada) + Distance.GetDistance(p.Coordenada, origen.Coordenada) }))
-                .Where(p => p.Paradero.Codigo != origen.Codigo)
+                .Where(p => p.Paradero.Codigo != origen.Codigo
+                    && Distance.GetDistance(p.Paradero.Coordenada, destino.Coordenada) < distance)
                 .OrderBy(p => p.Distancia)
                 .ToArray();
             if (getMinimal)
