@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TransportPro.Entities;
+using TransportPro.Entities.Helpers;
 
 namespace TransportPro.BC
 {
@@ -37,10 +36,13 @@ namespace TransportPro.BC
                 }
                 if (add && old != null)
                 {
+                    var detalle = insert ? new RutaDetalle { Linea = linea.Codigo, Empresa = linea.Empresa.Nombre, ParaderoOrigen = paradero, ParaderoDestino = old }
+                    : new RutaDetalle { Linea = linea.Codigo, Empresa = linea.Empresa.Nombre, ParaderoOrigen = old, ParaderoDestino = paradero };
+                    detalle.Distancia = Distance.GetDistance(detalle.ParaderoOrigen.Coordenada, detalle.ParaderoDestino.Coordenada);
                     if (insert)
-                        list.Insert(0, new RutaDetalle { Linea = linea.Codigo, Empresa = linea.Empresa.Nombre, ParaderoOrigen = paradero, ParaderoDestino = old });
+                        list.Insert(0, detalle);
                     else
-                        list.Add(new RutaDetalle { Linea = linea.Codigo, Empresa = linea.Empresa.Nombre, ParaderoOrigen = old, ParaderoDestino = paradero });
+                        list.Add(detalle);
                 }
                 old = paradero;
             }
